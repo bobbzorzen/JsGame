@@ -1,6 +1,6 @@
 console.log("main.js")
 require(["Launcher"], function(Launcher) {
 
-    var launcher = new Launcher("Tile Game");
+    var launcher = new Launcher("Tile Game", 600, 300);
 
 });
