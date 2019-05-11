@@ -5,10 +5,11 @@ requirejs.config({
         //Libs
         "Class":"libs/class",
         "Jquery":"libs/jquery",
+        "Konva":"libs/konva",
         
         //Classes
         "Launcher":"app/classes/Launcher",
-        "Display": "app/classes/display/Display"
+        "Ball": "app/classes/GameEntities/Ball"
     }
 });
 
