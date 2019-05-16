@@ -21,11 +21,11 @@ define(["Class", "Konva"], function (Class, Konva) {
             fill: '#CECECE',
             stroke: 'C0C0C0',
             strokeWidth: 1,
-            x: 50,
-            y: 50
+            x: 0,
+            y: 0
         });
-        xSpeed = speed / 2;
-        ySpeed = speed;
+        xSpeed = 0;
+        ySpeed = 0;
     }
 
     //Getters
@@ -36,12 +36,25 @@ define(["Class", "Konva"], function (Class, Konva) {
         return konva;
     };
     Ball.prototype.move = function (stageWidth, stageHeight) {
+        // console.log("Moving: ", xSpeed);
+        // console.log("Moving: ", ySpeed);
         let ballX = konva.x();
         let ballY = konva.y();
         if ((ballX + radius) > stageWidth || (ballX - radius) < 0) { xSpeed *= -1 };
         if ((ballY + radius) > stageHeight || (ballY - radius) < 0) { ySpeed *= -1 };
         konva.x(konva.x() + xSpeed);
         konva.y(konva.y() + ySpeed);
+    };
+    Ball.prototype.reset = function (stageWidth, stageHeight) {
+        konva.x(stageWidth/2 - radius);
+        konva.y(stageHeight - radius);
+        xSpeed = 0;
+        ySpeed = 0;
+    };
+    Ball.prototype.launch = function (angle) {
+        xSpeed = speed;
+        ySpeed = speed;
+        console.log("Launching");
     };
 
     return Ball;
